@@ -1,0 +1,230 @@
+[gd_scene load_steps=31 format=3 uid="uid://dtooka3hcr0hp"]
+
+[ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://kncwuiwod1bu" path="res://scenes/player.tscn" id="2_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://cm614h1csjb51" path="res://assets/oh-wowie-its-that-time-of-the-week-again-v0-sv4l0iorv1ze1.webp" id="4_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://cq7m546glrpnu" path="res://scenes/Marionette_basic.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://cqwjffs7eni4" path="res://scenes/control left.tscn" id="5_tefeu"]
+[ext_resource type="Texture2D" uid="uid://poh54qhfyg41" path="res://assets/19c2b206eb57d6427a009795dc8018f9.jpg" id="5_trceg"]
+[ext_resource type="PackedScene" uid="uid://l2y64eua6re1" path="res://scenes/control right.tscn" id="6_tefeu"]
+[ext_resource type="Texture2D" uid="uid://1lvnukf36mhk" path="res://assets/haruko-ichikawas-ps5-is-the-worst-now-whos-just-a-plot-v0-14xm5o2l29gd1.webp" id="8_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://raut3gkjailx" path="res://assets/library-of-ruina-angela.png" id="9_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://cxlnebnhp2yfr" path="res://assets/toruh A. horton.PNG" id="10_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://b4r8s4fdhl0um" path="res://assets/kcxg47vx5zob1.jpg" id="11_muem4"]
+[ext_resource type="Texture2D" uid="uid://xipa3dceeho3" path="res://assets/fvwy3iikw8ze1.png" id="12_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://bh2n1uhdq2uso" path="res://scenes/combo.tscn" id="13_trceg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h2yge"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_1bvp3"]
+sky_material = SubResource("ProceduralSkyMaterial_h2yge")
+
+[sub_resource type="Environment" id="Environment_lquwl"]
+background_mode = 2
+sky = SubResource("Sky_1bvp3")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ld40"]
+albedo_texture = ExtResource("4_eb6dy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqmmt"]
+albedo_texture = ExtResource("5_trceg")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jyhfs"]
+viewport_path = NodePath("Marionette/SubViewport1")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tbgi4"]
+viewport_path = NodePath("Marionette/SubViewport2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tefeu"]
+viewport_path = NodePath("Marionette/SubViewport3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yc10j"]
+albedo_texture = ExtResource("8_a8y0u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jscy8"]
+albedo_texture = ExtResource("9_jkv2x")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pm3ni"]
+albedo_texture = ExtResource("10_jbj1t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6deb"]
+albedo_texture = ExtResource("11_muem4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_og1vs"]
+albedo_texture = ExtResource("9_jkv2x")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wyq8"]
+albedo_texture = ExtResource("11_muem4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxglm"]
+albedo_texture = ExtResource("4_eb6dy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2f3dj"]
+albedo_texture = ExtResource("5_trceg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yq6so"]
+albedo_texture = ExtResource("12_dp3eg")
+
+[node name="main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lquwl")
+
+[node name="StartXR" parent="." instance=ExtResource("1_sugp2")]
+
+[node name="Marionette" parent="." instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021189, -17.8967, -5.57985)
+visible = false
+
+[node name="RemoteTransform3D1" type="RemoteTransform3D" parent="Marionette"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, -1)
+remote_path = NodePath("../SubViewport1/Camera1")
+
+[node name="RemoteTransform3D2" type="RemoteTransform3D" parent="Marionette"]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 0.5, 9, 0)
+remote_path = NodePath("../SubViewport2/Camera2")
+
+[node name="RemoteTransform3D3" type="RemoteTransform3D" parent="Marionette"]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -0.5, 9, 0)
+remote_path = NodePath("../SubViewport3/Camera3")
+
+[node name="SubViewport1" type="SubViewport" parent="Marionette"]
+
+[node name="Camera1" type="Camera3D" parent="Marionette/SubViewport1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021189, -8.8967, -6.57985)
+
+[node name="SubViewport2" type="SubViewport" parent="Marionette"]
+
+[node name="Camera2" type="Camera3D" parent="Marionette/SubViewport2"]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 0.478811, -8.8967, -5.57985)
+current = true
+
+[node name="SubViewport3" type="SubViewport" parent="Marionette"]
+
+[node name="Camera3" type="Camera3D" parent="Marionette/SubViewport3"]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -0.521189, -8.8967, -5.57985)
+current = true
+
+[node name="cockpit" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
+visible = false
+
+[node name="table" type="CSGBox3D" parent="cockpit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.5)
+material_override = SubResource("StandardMaterial3D_0ld40")
+use_collision = true
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="floor" type="CSGBox3D" parent="cockpit"]
+material_override = SubResource("StandardMaterial3D_gqmmt")
+size = Vector3(2, 0.05, 2)
+
+[node name="screen 1" type="Sprite3D" parent="cockpit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.748423, -0.831348)
+pixel_size = 0.001
+texture = SubResource("ViewportTexture_jyhfs")
+
+[node name="screen 2" type="Sprite3D" parent="cockpit"]
+transform = Transform3D(0.758168, 0, -0.652059, 0, 1, 0, 0.652059, 0, 0.758168, 0.5, 0.748423, -0.631348)
+pixel_size = 0.001
+texture = SubResource("ViewportTexture_tbgi4")
+
+[node name="screen 3" type="Sprite3D" parent="cockpit"]
+transform = Transform3D(0.658913, 0, 0.752219, 0, 1, 0, -0.752219, 0, 0.658913, -0.5, 0.748423, -0.631348)
+pixel_size = 0.001
+texture = SubResource("ViewportTexture_tefeu")
+
+[node name="player" parent="cockpit" instance=ExtResource("2_jyhfs")]
+
+[node name="control left" parent="cockpit" instance=ExtResource("5_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.7, -0.3)
+visible = false
+
+[node name="control right" parent="cockpit" instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.7, -0.3)
+visible = false
+
+[node name="map" type="Node3D" parent="."]
+
+[node name="floor" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+material_override = SubResource("StandardMaterial3D_yc10j")
+use_collision = true
+size = Vector3(1000, 1, 1000)
+
+[node name="Building 1" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.3873, -4.63988, 0.228644)
+material_override = SubResource("StandardMaterial3D_jscy8")
+use_collision = true
+size = Vector3(20, 30, 20)
+
+[node name="Building 2" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.3873, -4.63988, -39.2249)
+material_override = SubResource("StandardMaterial3D_pm3ni")
+use_collision = true
+size = Vector3(20, 30, 20)
+
+[node name="Building 3" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.981687, 0, -0.190501, 0, 1, 0, 0.190501, 0, 0.981687, 29.7989, -4.63988, -28.7088)
+material_override = SubResource("StandardMaterial3D_y6deb")
+use_collision = true
+size = Vector3(20, 30, 20)
+
+[node name="Building 4" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.981687, 0, -0.190501, 0, 1, 0, 0.190501, 0, 0.981687, 34.9561, -4.63988, -77.376)
+material_override = SubResource("StandardMaterial3D_og1vs")
+use_collision = true
+size = Vector3(20, 30, 20)
+
+[node name="Building 5" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.981687, 0, -0.190501, 0, 1, 0, 0.190501, 0, 0.981687, -25.151, -4.63988, -87.3159)
+material_override = SubResource("StandardMaterial3D_2wyq8")
+use_collision = true
+size = Vector3(20, 30, 20)
+
+[node name="Building 6" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.957607, 0, -0.288079, 0, 1, 0, 0.288079, 0, 0.957607, 59.6308, -4.63987, 42.5254)
+material_override = SubResource("StandardMaterial3D_vxglm")
+use_collision = true
+size = Vector3(20, 30, 50.271)
+
+[node name="Building 7" type="CSGBox3D" parent="map"]
+transform = Transform3D(-0.242362, 0, -0.970186, 0, 1, 0, 0.970186, 0, -0.242362, 21.6263, -4.63987, 62.9705)
+material_override = SubResource("StandardMaterial3D_2f3dj")
+use_collision = true
+size = Vector3(20, 30, 50.271)
+
+[node name="Building 8" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.526168, -0.834036, -0.165928, 0.838951, 0.541001, -0.0589763, 0.138956, -0.108174, 0.984373, 96.3313, -20.1941, -43.7588)
+use_collision = true
+size = Vector3(20, 32.6362, 20)
+
+[node name="collumn" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.986873, 0, -0.161501, 0, 1, 0, 0.161501, 0, 0.986873, 4.09773, -12.4289, -54.0413)
+use_collision = true
+size = Vector3(5, 15, 5)
+
+[node name="collumn2" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.974895, 0, -0.222672, 0, 1, 0, 0.222672, 0, 0.974895, 64.739, -12.4289, -49.8091)
+use_collision = true
+size = Vector3(5, 15, 5)
+
+[node name="tracks" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.986873, 0, -0.1615, 0, 1, 0, 0.1615, 0, 0.986873, 26.0502, -4.53754, -54.0413)
+use_collision = true
+size = Vector3(126.335, 3, 25)
+
+[node name="shin station" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.94249, 0, -0.334235, 0, 1, 0, 0.334235, 0, 0.94249, 32.05, -19.4815, 33.09)
+material_override = SubResource("StandardMaterial3D_yq6so")
+size = Vector3(50, 1, 50)
+
+[node name="combo" parent="." instance=ExtResource("13_trceg")]

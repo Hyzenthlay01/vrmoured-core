@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmrqcg8vgfq01"]
+
+[ext_resource type="Script" uid="uid://uelghfx0ah57" path="res://scripts/CameraFeed1.gd" id="1_ga5w8"]
+[ext_resource type="PackedScene" uid="uid://bs0a3dtru1xy1" path="res://scenes/viewport_1.tscn" id="1_mlplb"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_s8r4p"]
+viewport_path = NodePath(".")
+
+[node name="cockpit" type="Node3D"]
+
+[node name="Viewport1" parent="." instance=ExtResource("1_mlplb")]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = SubResource("ViewportTexture_s8r4p")
+script = ExtResource("1_ga5w8")

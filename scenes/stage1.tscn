@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bujjnc8w12p00"]
+
+[ext_resource type="Texture2D" uid="uid://1lvnukf36mhk" path="res://assets/haruko-ichikawas-ps5-is-the-worst-now-whos-just-a-plot-v0-14xm5o2l29gd1.webp" id="1_v53cv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1kto"]
+albedo_texture = ExtResource("1_v53cv")
+
+[node name="floor" type="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+material_override = SubResource("StandardMaterial3D_b1kto")
+use_collision = true
+size = Vector3(1000, 1, 1000)

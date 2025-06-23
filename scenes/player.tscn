@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://kncwuiwod1bu"]
+
+[ext_resource type="PackedScene" uid="uid://16colgxrw27d" path="res://addons/godot-xr-tools/hands/model/Hand_low_L.gltf" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://cjrac51wst3tu" path="res://addons/godot-xr-tools/hands/model/Hand_low_R.gltf" id="2_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_qhqgy"]
+
+[node name="XROrigin3D" type="XROrigin3D"]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+
+[node name="Lhand" type="XRController3D" parent="."]
+tracker = &"left_hand"
+
+[node name="Hand_low_L" parent="Lhand" instance=ExtResource("1_onrkg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.121283)
+
+[node name="FunctionPickup" parent="Lhand" instance=ExtResource("2_qhqgy")]
+
+[node name="Rhand" type="XRController3D" parent="."]
+tracker = &"right_hand"
+
+[node name="Hand_low_R" parent="Rhand" instance=ExtResource("2_i3pqv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.121283)
+
+[node name="FunctionPickup" parent="Rhand" instance=ExtResource("2_qhqgy")]

@@ -1,0 +1,247 @@
+[gd_scene load_steps=23 format=3 uid="uid://dtooka3hcr0hp"]
+
+[ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="1_sugp2"]
+[ext_resource type="Texture2D" uid="uid://cm614h1csjb51" path="res://assets/oh-wowie-its-that-time-of-the-week-again-v0-sv4l0iorv1ze1.webp" id="4_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://poh54qhfyg41" path="res://assets/19c2b206eb57d6427a009795dc8018f9.jpg" id="5_trceg"]
+[ext_resource type="Texture2D" uid="uid://1lvnukf36mhk" path="res://assets/haruko-ichikawas-ps5-is-the-worst-now-whos-just-a-plot-v0-14xm5o2l29gd1.webp" id="8_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://raut3gkjailx" path="res://assets/library-of-ruina-angela.png" id="9_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://cq7m546glrpnu" path="res://scenes/Marionette_basic.tscn" id="10_choun"]
+[ext_resource type="Texture2D" uid="uid://cxlnebnhp2yfr" path="res://assets/toruh A. horton.PNG" id="10_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://b4r8s4fdhl0um" path="res://assets/kcxg47vx5zob1.jpg" id="11_muem4"]
+[ext_resource type="Texture2D" uid="uid://xipa3dceeho3" path="res://assets/fvwy3iikw8ze1.png" id="12_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://bh2n1uhdq2uso" path="res://scenes/combo.tscn" id="13_trceg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h2yge"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_1bvp3"]
+sky_material = SubResource("ProceduralSkyMaterial_h2yge")
+
+[sub_resource type="Environment" id="Environment_lquwl"]
+background_mode = 2
+sky = SubResource("Sky_1bvp3")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yc10j"]
+albedo_texture = ExtResource("8_a8y0u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jscy8"]
+albedo_texture = ExtResource("9_jkv2x")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pm3ni"]
+albedo_texture = ExtResource("10_jbj1t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6deb"]
+albedo_texture = ExtResource("11_muem4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_og1vs"]
+albedo_texture = ExtResource("9_jkv2x")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wyq8"]
+albedo_texture = ExtResource("11_muem4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxglm"]
+albedo_texture = ExtResource("4_eb6dy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2f3dj"]
+albedo_texture = ExtResource("5_trceg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yq6so"]
+albedo_texture = ExtResource("12_dp3eg")
+
+[node name="main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lquwl")
+
+[node name="StartXR" parent="." instance=ExtResource("1_sugp2")]
+
+[node name="map" type="Node3D" parent="."]
+
+[node name="floor" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+material_override = SubResource("StandardMaterial3D_yc10j")
+use_collision = true
+size = Vector3(1000, 1, 1000)
+
+[node name="Building 1" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.7115, -4.63988, 0.228644)
+material_override = SubResource("StandardMaterial3D_jscy8")
+use_collision = true
+size = Vector3(34.6484, 30, 20)
+
+[node name="Building 9" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.945143, 0, 0.326657, 0, 1, 0, -0.326657, 0, 0.945143, -69.8584, -4.63988, -36.1087)
+material_override = SubResource("StandardMaterial3D_jscy8")
+use_collision = true
+size = Vector3(20, 30, 20)
+
+[node name="Building 10" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.706971, 0, 0.707242, 0, 1, 0, -0.707242, 0, 0.706971, -110.654, -4.63988, -11.5866)
+material_override = SubResource("StandardMaterial3D_jscy8")
+use_collision = true
+size = Vector3(20, 30, 20)
+
+[node name="Building 2" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.3873, -4.63988, -39.2249)
+material_override = SubResource("StandardMaterial3D_pm3ni")
+use_collision = true
+size = Vector3(20, 30, 20)
+
+[node name="Building 11" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.1136, -4.63988, 29.0156)
+material_override = SubResource("StandardMaterial3D_pm3ni")
+use_collision = true
+size = Vector3(20, 30, 39.34)
+
+[node name="Building 12" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.927471, 0, 0.373894, 0, 1, 0, -0.373894, 0, 0.927471, -120.944, -4.63988, -149.352)
+material_override = SubResource("StandardMaterial3D_pm3ni")
+use_collision = true
+size = Vector3(97.4375, 30, 39.34)
+
+[node name="Building 14" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.927471, 0, 0.373894, 0, 1, 0, -0.373894, 0, 0.927471, -106.719, -4.63988, -187.214)
+material_override = SubResource("StandardMaterial3D_pm3ni")
+use_collision = true
+size = Vector3(42.9912, 30, 20.1368)
+
+[node name="Building 13" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.871268, -0.317116, 0.374607, 0.34202, 0.939693, 0, -0.352015, 0.128123, 0.927184, -164.28, -20.2741, -164.179)
+material_override = SubResource("StandardMaterial3D_pm3ni")
+use_collision = true
+size = Vector3(97.4375, 30, 20.2784)
+
+[node name="Building 3" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.981687, 0, -0.190501, 0, 1, 0, 0.190501, 0, 0.981687, 29.7989, -4.63988, -28.7088)
+material_override = SubResource("StandardMaterial3D_y6deb")
+use_collision = true
+size = Vector3(20, 30, 20)
+
+[node name="Building 4" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.981687, 0, -0.190501, 0, 1, 0, 0.190501, 0, 0.981687, 34.9561, -4.63988, -77.376)
+material_override = SubResource("StandardMaterial3D_og1vs")
+use_collision = true
+size = Vector3(20, 30, 20)
+
+[node name="Building 5" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.981687, 0, -0.190501, 0, 1, 0, 0.190501, 0, 0.981687, -25.151, -4.63988, -87.3159)
+material_override = SubResource("StandardMaterial3D_2wyq8")
+use_collision = true
+size = Vector3(20, 30, 20)
+
+[node name="Building 8" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.981687, 0, -0.190501, 0, 1, 0, 0.190501, 0, 0.981687, 91.3131, -4.63988, -66.6921)
+material_override = SubResource("StandardMaterial3D_2wyq8")
+use_collision = true
+size = Vector3(20, 30, 20)
+
+[node name="Building 6" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.957607, 0, -0.288079, 0, 1, 0, 0.288079, 0, 0.957607, 59.6308, -4.63987, 42.5254)
+material_override = SubResource("StandardMaterial3D_vxglm")
+use_collision = true
+size = Vector3(20, 30, 50.271)
+
+[node name="Building 7" type="CSGBox3D" parent="map"]
+transform = Transform3D(-0.242362, 0, -0.970186, 0, 1, 0, 0.970186, 0, -0.242362, 21.6263, -4.63987, 62.9705)
+material_override = SubResource("StandardMaterial3D_2f3dj")
+use_collision = true
+size = Vector3(20, 30, 50.271)
+
+[node name="ramp" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.535083, -0.830286, -0.155917, 0.840567, 0.541708, -4.9701e-09, 0.0844617, -0.131059, 0.98777, 96.8082, -20.0682, -43.9999)
+use_collision = true
+size = Vector3(20, 32.6362, 20)
+
+[node name="ramp2" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.340974, -0.529088, -0.777047, 0.840567, 0.541708, -5.29349e-09, 0.420933, -0.65316, 0.629443, -128.761, -19.9791, -0.915261)
+use_collision = true
+size = Vector3(20, 32.6362, 20)
+
+[node name="collumn" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.986873, 0, -0.161501, 0, 1, 0, 0.161501, 0, 0.986873, 4.09773, -12.4289, -54.0413)
+use_collision = true
+size = Vector3(5, 15, 5)
+
+[node name="collumn2" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.974895, 0, -0.222672, 0, 1, 0, 0.222672, 0, 0.974895, 64.739, -12.4289, -49.8091)
+use_collision = true
+size = Vector3(5, 15, 5)
+
+[node name="collumn3" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.963682, 0, 0.267053, 0, 1, 0, -0.267053, 0, 0.963682, -115.077, -12.4289, -42.5966)
+use_collision = true
+size = Vector3(5, 15, 5)
+
+[node name="collumn4" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.978449, 0, 0.206495, 0, 1, 0, -0.206495, 0, 0.978449, -58.2468, -12.4289, -64.1739)
+use_collision = true
+size = Vector3(5, 15, 5)
+
+[node name="tracks" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.986873, 0, -0.1615, 0, 1, 0, 0.1615, 0, 0.986873, 26.0502, -4.53754, -54.0413)
+use_collision = true
+size = Vector3(126.335, 3, 25)
+
+[node name="tracks2" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.991381, 0, 0.131011, 0, 1, 0, -0.131011, 0, 0.991381, -60.6073, -4.53754, -59.9086)
+use_collision = true
+size = Vector3(80.0591, 3, 25)
+
+[node name="tracks3" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.784062, 0, 0.620683, 0, 1, 0, -0.620683, 0, 0.784062, -118.569, -4.53754, -35.3865)
+use_collision = true
+size = Vector3(80.0591, 3, 25)
+
+[node name="shin station" type="CSGBox3D" parent="map"]
+transform = Transform3D(0.94249, 0, -0.334235, 0, 1, 0, 0.334235, 0, 0.94249, 32.05, -19.4815, 33.09)
+material_override = SubResource("StandardMaterial3D_yq6so")
+size = Vector3(50, 1, 50)
+
+[node name="combo" parent="." instance=ExtResource("13_trceg")]
+
+[node name="Marionette_basic" parent="." instance=ExtResource("10_choun")]
+transform = Transform3D(-0.974703, 0, -0.223505, 0, 1, 0, 0.223505, 0, -0.974703, -121.178, 12.9541, -147.452)
+
+[node name="lockon" type="Sprite3D" parent="Marionette_basic"]
+transform = Transform3D(-0.974703, 0, 0.223505, 0, 1, 0, -0.223505, 0, -0.974703, -85.1557, -12.9541, -170.806)
+visible = false
+billboard = 1
+no_depth_test = true
+texture = ExtResource("12_dp3eg")
+
+[node name="Marionette_basic4" parent="." instance=ExtResource("10_choun")]
+transform = Transform3D(-0.999358, 0, -0.0358415, 0, 1, 0, 0.0358415, 0, -0.999358, 6.84528, 12.9541, -55.8127)
+
+[node name="lockon" type="Sprite3D" parent="Marionette_basic4"]
+transform = Transform3D(-0.999357, 0, 0.0358415, 0, 1, 0, -0.0358415, 0, -0.999357, 8.84129, -12.9541, -55.5314)
+visible = false
+billboard = 1
+no_depth_test = true
+texture = ExtResource("12_dp3eg")
+
+[node name="Marionette_basic3" parent="." instance=ExtResource("10_choun")]
+transform = Transform3D(-0.974703, 0, -0.223505, 0, 1, 0, 0.223505, 0, -0.974703, -86.4392, 12.9541, -155.645)
+
+[node name="lockon" type="Sprite3D" parent="Marionette_basic3"]
+transform = Transform3D(-0.974703, 0, 0.223505, 0, 1, 0, -0.223505, 0, -0.974703, -49.465, -12.9541, -171.028)
+visible = false
+billboard = 1
+no_depth_test = true
+texture = ExtResource("12_dp3eg")
+
+[node name="Marionette_basic2" parent="." instance=ExtResource("10_choun")]
+transform = Transform3D(-0.908581, 0, -0.417709, 0, 1, 0, 0.417709, 0, -0.908581, -150.003, 14.5911, -135.962)
+
+[node name="lockon" type="Sprite3D" parent="Marionette_basic2"]
+transform = Transform3D(-0.908581, 0, 0.417709, 0, 1, 0, -0.417709, 0, -0.908581, -79.4969, -14.5911, -186.19)
+visible = false
+billboard = 1
+no_depth_test = true
+texture = ExtResource("12_dp3eg")
