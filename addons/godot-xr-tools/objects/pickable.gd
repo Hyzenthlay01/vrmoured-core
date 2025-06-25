@@ -33,6 +33,8 @@ signal action_pressed(pickable)
 # Signal emitted when the user releases the action button while holding this object
 signal action_released(pickable)
 
+signal vent_pressed(pickable)
+
 # Signal emitted when the highlight state changes
 signal highlight_updated(pickable, enable)
 
@@ -213,6 +215,9 @@ func controller_action_release(controller : XRController3D):
 	):
 		_grab_driver.secondary.point.action_release(self)
 
+func venti():
+	emit_signal ("vent_pressed",self)
+	print("gaming")
 
 ## This method requests highlighting of the [XRToolsPickable].
 ## If [param from] is null then all highlighting requests are cleared,

@@ -210,39 +210,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19, 0)
 [node name="Marionette_basic" parent="." instance=ExtResource("10_choun")]
 transform = Transform3D(-0.974703, 0, -0.223505, 0, 1, 0, 0.223505, 0, -0.974703, -121.178, 12.9541, -147.452)
 
-[node name="lockon" type="Sprite3D" parent="Marionette_basic"]
-transform = Transform3D(-0.974703, 0, 0.223505, 0, 1, 0, -0.223505, 0, -0.974703, -85.1557, -12.9541, -170.806)
-visible = false
-billboard = 1
-no_depth_test = true
-texture = ExtResource("12_dp3eg")
-
 [node name="Marionette_basic4" parent="." instance=ExtResource("10_choun")]
 transform = Transform3D(-0.999358, 0, -0.0358415, 0, 1, 0, 0.0358415, 0, -0.999358, 6.84528, 12.9541, -55.8127)
-
-[node name="lockon" type="Sprite3D" parent="Marionette_basic4"]
-transform = Transform3D(-0.999357, 0, 0.0358415, 0, 1, 0, -0.0358415, 0, -0.999357, 8.84129, -12.9541, -55.5314)
-visible = false
-billboard = 1
-no_depth_test = true
-texture = ExtResource("12_dp3eg")
 
 [node name="Marionette_basic3" parent="." instance=ExtResource("10_choun")]
 transform = Transform3D(-0.974703, 0, -0.223505, 0, 1, 0, 0.223505, 0, -0.974703, -86.4392, 12.9541, -155.645)
 
-[node name="lockon" type="Sprite3D" parent="Marionette_basic3"]
-transform = Transform3D(-0.974703, 0, 0.223505, 0, 1, 0, -0.223505, 0, -0.974703, -49.465, -12.9541, -171.028)
-visible = false
-billboard = 1
-no_depth_test = true
-texture = ExtResource("12_dp3eg")
-
 [node name="Marionette_basic2" parent="." instance=ExtResource("10_choun")]
 transform = Transform3D(-0.908581, 0, -0.417709, 0, 1, 0, 0.417709, 0, -0.908581, -150.003, 14.5911, -135.962)
-
-[node name="lockon" type="Sprite3D" parent="Marionette_basic2"]
-transform = Transform3D(-0.908581, 0, 0.417709, 0, 1, 0, -0.417709, 0, -0.908581, -79.4969, -14.5911, -186.19)
-visible = false
-billboard = 1
-no_depth_test = true
-texture = ExtResource("12_dp3eg")

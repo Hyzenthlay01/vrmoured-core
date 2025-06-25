@@ -44,6 +44,8 @@ class CopiedCollision extends RefCounted:
 ## Action controller button
 @export var action_button_action : String = "trigger_click"
 
+@export var vent_button : String = "ax_button"
+
 ## Grab distance
 @export var grab_distance : float = 0.3: set = _set_grab_distance
 
@@ -476,6 +478,14 @@ func _on_button_pressed(p_button) -> void:
 	if p_button == action_button_action and is_instance_valid(picked_up_object):
 		if picked_up_object.has_method("action"):
 			picked_up_object.action()
+
+		if picked_up_object.has_method("controller_action"):
+			picked_up_object.controller_action(_controller)
+			
+	if p_button == vent_button and is_instance_valid(picked_up_object):
+		print("vent")
+		if picked_up_object.has_method("venti"):
+			picked_up_object.venti()
 
 		if picked_up_object.has_method("controller_action"):
 			picked_up_object.controller_action(_controller)
