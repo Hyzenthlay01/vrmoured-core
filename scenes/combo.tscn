@@ -243,9 +243,11 @@ transform = Transform3D(2.08616e-07, 0, 1, 0, 1, 0, -1, 0, 2.08616e-07, -0.7, 9,
 current = true
 
 [node name="Area3D" type="Area3D" parent="Marionette_basic"]
+collision_layer = 1024
+collision_mask = 1024
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Marionette_basic/Area3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 9, -1)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 9, -1.33429)
 shape = SubResource("ConvexPolygonShape3D_ydk1y")
 
 [node name="cockpit" type="Node3D" parent="."]
@@ -756,10 +758,12 @@ player_height_min = 0.2
 [connection signal="body_exited" from="Marionette_basic/Area3D" to="Marionette_basic" method="_on_area_3d_body_exited"]
 [connection signal="body_entered" from="cockpit/PushButton/InteractableAreaButton" to="cockpit/PushButton/InteractableAreaButton/Rumbler" method="rumble_hand"]
 [connection signal="body_exited" from="cockpit/PushButton/InteractableAreaButton" to="cockpit/PushButton/InteractableAreaButton/Rumbler" method="cancel_hand"]
-[connection signal="button_pressed" from="cockpit/PushButton/InteractableAreaButton" to="cockpit/control left2/SliderOrigin/InteractableSlider" method="_on_interactable_area_button_button_pressed"]
 [connection signal="button_pressed" from="cockpit/PushButton/InteractableAreaButton" to="cockpit/control right2/SliderOrigin/InteractableSlider" method="_on_interactable_area_button_button_pressed"]
+[connection signal="button_pressed" from="cockpit/PushButton/InteractableAreaButton" to="cockpit/control left2/SliderOrigin/InteractableSlider" method="_on_interactable_area_button_button_pressed"]
 [connection signal="slider_moved" from="cockpit/control right2/SliderOrigin/InteractableSlider" to="Marionette_basic" method="_on_interactable_slider_slider_movedR"]
 [connection signal="slider_moved" from="cockpit/control left2/SliderOrigin/InteractableSlider" to="Marionette_basic" method="_on_interactable_slider_slider_movedL"]
+[connection signal="button_pressed" from="cockpit/XROrigin3D/LeftHand" to="Marionette_basic" method="_on_left_hand_button_pressedL"]
+[connection signal="button_pressed" from="cockpit/XROrigin3D/RightHand" to="Marionette_basic" method="_on_right_hand_button_pressedR"]
 
 [editable path="cockpit/XROrigin3D/LeftHand/LeftPhysicsHand"]
 [editable path="cockpit/XROrigin3D/LeftHand/LeftPhysicsHand/Hand_Nails_low_L"]

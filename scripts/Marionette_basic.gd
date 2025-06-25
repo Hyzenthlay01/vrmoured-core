@@ -6,13 +6,15 @@ extends CharacterBody3D
 @export var SPEED = 100.0
 const RotationSPEED = 4.0
 const JUMP_VELOCITY = 4.5
+var targetpos = 0
+var currenttarget = Node3D
 
 
 var RIGHTcontrol = 0
 var LEFTcontrol = 0
 
 func _physics_process(delta: float) -> void:
-	#print(targets)
+	
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -49,3 +51,19 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	targets.erase(body)
 	#lockon.visible = false
+
+func _on_right_hand_button_pressedR(name: String) -> void:
+	targetpos += 1
+	if len(targets) != 0:
+		targetpos = targetpos % len(targets)
+		print(targetpos)
+		print("all", targets)
+		print("current target", targets[targetpos])
+	
+func _on_left_hand_button_pressedL(name: String) -> void:
+	targetpos -= 1
+	if len(targets) != 0:
+		targetpos = targetpos % len(targets)
+		print(targetpos)
+		print("all", targets)
+		print("current target", targets[targetpos])

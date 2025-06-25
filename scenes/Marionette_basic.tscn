@@ -1056,6 +1056,7 @@ radius = 2.13399
 height = 9.30633
 
 [node name="Marionette_basic" type="CharacterBody3D"]
+collision_layer = 1025
 script = ExtResource("1_gp01q")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
